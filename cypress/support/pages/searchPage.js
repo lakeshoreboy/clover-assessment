@@ -1,6 +1,8 @@
 
-const searchTextAreaEle = 'textarea#APjFqb';
-const firstSearchResultOnSearchPageEle    = 'a[data-impdclcc="1"] span[data-dtld="clover.com"]'
+const google = {
+    searchTextAreaEle : 'textarea#APjFqb',
+    firstSearchResultOnSearchPageEle  : 'a[data-impdclcc="1"] span[data-dtld="clover.com"]'
+}
 const yahoo = {
     searchInputEle: 'input#ybar-sbq',
     firstSearchResultEle: 'li[pos="0"]',
@@ -13,7 +15,7 @@ export class SearchPage {
      */
     searchFor(searchString) {
         if (Cypress.env('searchEngine') === "google") {
-            cy.get(searchTextAreaEle).type(searchString, { timeout: 60000 })
+            cy.get(google.searchTextAreaEle).type(searchString, { timeout: 60000 })
             cy.screenshot("1-a-search-google")
         } else {
             cy.get(yahoo.searchInputEle, { timeout: 10000 }).should('exist').type(searchString)
@@ -35,8 +37,8 @@ export class SearchPage {
                 cy.get('li[data-view-type="' + expectedResultPosition + '"]', { timeout: 30000 }).get('div[aria-label = "' + searchString + '"]', { timeout: 10000 })
                     .should('exist')
                     cy.screenshot("1-b-search-google")
-                    cy.get(searchTextAreaEle).type("{enter}")
-                    cy.get(firstSearchResultOnSearchPageEle).should('contain.text',searchString)
+                    cy.get(google.searchTextAreaEle).type("{enter}")
+                    cy.get(google.firstSearchResultOnSearchPageEle,{timeout:30000}).should('contain.text',searchString)
                     cy.screenshot("1-c-search-google")
                     
             } else {
