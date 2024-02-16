@@ -1,7 +1,10 @@
 {
-    "baseUrl":"https://google.com",
 
     "env":{
-        
+       "applicationUrlGoogle":  "https://google.com",
+       "applicationUrlYahoo":  "https://yahoo.com",
+       "searchString" : "clover.com",
+       "searchStringDoesNotExist": "%%%%%%%%%%%%%%%%%%%%%%",
+       "searchengine":""
     }
 }
