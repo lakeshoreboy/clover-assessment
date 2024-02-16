@@ -23,6 +23,91 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/**
+ * backend rest api calls
+ */
+
+const postObject = {
+  method: 'POST',
+  headers: {
+    'api=key': '',
+    'user-id': '',
+    'user-full-name': ''
+  }
+};
+const getObject = {
+  method: 'GET',
+  headers: {
+    'api=key': '',
+    'user-id': '',
+    'user-full-name': ''
+  }
+};
+const deleteObject = {
+  method: 'DELETE',
+  headers: {
+    'api=key': '',
+    'user-id': '',
+    'user-full-name': ''
+  }
+};
+const putObject = {
+  method: 'PUT',
+  headers: {
+    'api=key': '',
+    'user-id': '',
+    'user-full-name': ''
+  }
+};
+
+Cypress.Commands.add('postCall' ,(url,body) => {
+
+  const requestObj = {
+    ...postObject,
+    body,
+    url
+  };
+
+  return cy.request(requestObj)
+
+
+})
+
+Cypress.Commands.add('deleteCall' ,(url) => {
+
+  const requestObj = {
+    ...deleteObject,
+    url
+  };
+
+  return cy.request(requestObj)
+
+
+})
+
+Cypress.Commands.add('getCall' ,(url) => {
+
+  const requestObj = {
+    ...getObject,
+    url
+  };
+
+  return cy.request(requestObj)
+
+
+})
+Cypress.Commands.add('putCall' ,(url,body) => {
+
+  const requestObj = {
+    ...putObject,
+    body,
+    url
+  };
+
+  return cy.request(requestObj)
+
+
+})
 
 Cypress.Commands.add('launchBrowser' , (searchEngine) => {
    
@@ -35,10 +120,4 @@ Cypress.Commands.add('launchBrowser' , (searchEngine) => {
     cy.visit(Cypress.env('applicationUrlYahoo'))
    }
    
-})
-
-Cypress.Commands.add('launchApp' , () => {
- 
-  cy.visit('')
- 
 })

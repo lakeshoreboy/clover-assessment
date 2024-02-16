@@ -1,7 +1,8 @@
 
 const google = {
     searchTextAreaEle : 'textarea#APjFqb',
-    firstSearchResultOnSearchPageEle  : 'a[data-impdclcc="1"] span[data-dtld="clover.com"]'
+    firstSearchResultOnSearchPageEle  : 'a[data-impdclcc="1"] span[data-dtld="clover.com"]',
+    firstResultOnSearchPage : 'div#rso div:nth-child(1) div.eKjLze a:nth-child(1)'
 }
 const yahoo = {
     searchInputEle: 'input#ybar-sbq',
@@ -38,7 +39,8 @@ export class SearchPage {
                     .should('exist')
                     cy.screenshot("1-b-search-google")
                     cy.get(google.searchTextAreaEle).type("{enter}")
-                    cy.get(google.firstSearchResultOnSearchPageEle,{timeout:30000}).should('contain.text',searchString)
+                    cy.get(google.firstResultOnSearchPage,{timeout:30000}).should('exist'). and('have.attr', 'href').and('include', 'clover.com')
+                  //  cy.get(google.firstSearchResultOnSearchPageEle,{timeout:30000}).should('contain.text',searchString)
                     cy.screenshot("1-c-search-google")
                     
             } else {
