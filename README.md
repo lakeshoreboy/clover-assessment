@@ -9,9 +9,10 @@ Steps to setup:
 
      then run command "npm install"
 
-     to run test case in test runner , execute "npx cypress open --env configFile=qa --browser chrome"
+     to run test case in test runner , execute "npx cypress open --env configFile=qa --browser chrome" or npm run cy:open:qa
 
-     to generate video and mochawesome html report , execute "npx cypress run --env configFile=qa --browser chrome --headed"
+     to generate video and mochawesome html report , execute "npx cypress run --env configFile=qa --browser chrome --headed" or 
+     npm run cy:run:qa
 
      framework:
               page ogject model with data driven
@@ -23,6 +24,8 @@ Steps to setup:
               config folder is the place where we can update environment specific details like qa , stage , uat , prod etc
 
               reprts folder is the place where html repor and video can be found when we execute npx cypress ran command and i attached successful report and video
+
+              
 
 
 
