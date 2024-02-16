@@ -6,5 +6,13 @@
     "fs-extra": "11.2.0",
     "mkdirp": "3.0.1",
     "typescript": "~4.5.5"
+  },
+    "scripts": {
+    "cy:open:qa": "cypress open --env configFile=qa",
+    "cy:open:stage": "cypress open --env configFile=stage",
+    "cy:open:prod": "cypress open --env configFile=prod",
+    "cy:run:prod": "cypress run --env configFile=prod --browser chrome --headed",
+    "cy:run:qa": "cypress run --env configFile=qa --browser chrome --headed",
+    "cy:run:stage": "cypress run --env configFile=stage --browser chrome --headed"
   }
 }
