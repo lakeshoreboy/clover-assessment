@@ -2,7 +2,7 @@ Clover Assessment
 
 Steps to setup:
      checkout from the provided git repo
-     install node.js and npm
+     install node.js and npm 
      then open project in vscode
      then run command "npm install"
      to run test case in test runner , execute "npx cypress open --env configFile=qa --browser chrome"
