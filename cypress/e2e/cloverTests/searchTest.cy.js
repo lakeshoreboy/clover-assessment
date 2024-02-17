@@ -1,22 +1,22 @@
-import { SearchPage } from "../../support/pages/searchPage";
 
+import { GoogleSearchPage } from "../../support/pages/googleSearchPage";
+import { YahooSearchPage } from "../../support/pages/yahooSearchPage";
 import searchEnginesData from '../../fixtures/searchEngines.json'
 
-
-const searchPage = new SearchPage();
+const googleSearchPage = new GoogleSearchPage();
+const yahooSearchPage = new YahooSearchPage();
 const searchString = Cypress.env('searchString');
 const searchStringDoesNotExist = Cypress.env('searchStringDoesNotExist');
 var searchEngine = '';
 
 searchEnginesData.searchengines.forEach(searchEngineObj => {
 
-    describe('testing search functionality on search engine  '+searchEngineObj.searchEngine, () => {
+    describe('testing search functionality on search engine  ' + searchEngineObj.searchEngine, () => {
         before(() => {
 
             cy.log('setting up data ----------')
             searchEngine = searchEngineObj.searchEngine;
             Cypress.env('searchEngine', searchEngine)
-            cy.log(Cypress.env('searchEngine'))
             cy.log("perofrming seach functionality on search engine :" + searchEngine)
         })
 
@@ -32,8 +32,13 @@ searchEnginesData.searchengines.forEach(searchEngineObj => {
             it('search and verify the given search key ', () => {
 
                 cy.log('searching for ' + searchString)
-                searchPage.searchFor(searchString)
-                searchPage.verifysearchedString(searchString, 1, true)
+                if (searchEngine === 'google') {
+                    googleSearchPage.searchFor(searchString)
+                    googleSearchPage.verifysearchedString(searchString, 1, true)
+                } else {
+                    yahooSearchPage.searchFor(searchString)
+                    yahooSearchPage.verifysearchedString(searchString, 1, true)
+                }
 
 
             })
@@ -42,14 +47,18 @@ searchEnginesData.searchengines.forEach(searchEngineObj => {
             beforeEach(() => {
 
                 cy.launchBrowser(searchEngine);
-                
+
             })
-            it('search for a string that does not exist  ', () => {
+            it('search for a string that does not exist in system  ', () => {
 
                 cy.log('searching for ' + searchStringDoesNotExist)
-                searchPage.searchFor(searchStringDoesNotExist)
-                searchPage.verifysearchedString(searchStringDoesNotExist, 1, false)
-
+                if (searchEngine === 'google') {
+                    googleSearchPage.searchFor(searchStringDoesNotExist)
+                    googleSearchPage.verifysearchedString(searchStringDoesNotExist, 1, false)
+                } else {
+                    yahooSearchPage.searchFor(searchStringDoesNotExist)
+                    yahooSearchPage.verifysearchedString(searchStringDoesNotExist, 1, false)
+                }
 
             })
         })

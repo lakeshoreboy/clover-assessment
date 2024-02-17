@@ -7,7 +7,7 @@
     "mkdirp": "3.0.1",
     "typescript": "~4.5.5"
   },
-    "scripts": {
+  "scripts": {
     "cy:open:qa": "cypress open --env configFile=qa",
     "cy:open:stage": "cypress open --env configFile=stage",
     "cy:open:prod": "cypress open --env configFile=prod",
