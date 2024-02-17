@@ -14,6 +14,8 @@ Steps to setup:
      to generate video and mochawesome html report , execute "npx cypress run --env configFile=qa --browser chrome --headed" or 
      npm run cy:run:qa
 
+     to test cross-browser functionality , we can parameterize --browser value 
+
      framework:
               page ogject model with data driven
 
