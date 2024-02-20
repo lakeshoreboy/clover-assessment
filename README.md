@@ -13,7 +13,9 @@ Steps to setup:
 
      to run test case in test runner , execute "npx cypress open --env configFileName=qa --browser chrome" or npm run cy:open:qa
 
-     to generate video and mochawesome html report , execute "cypress run --env configFileName=qa --spec cypress/e2e/cloverTests/*searchOnAll*.js --browser chrome --headed" or 
+     to generate video and mochawesome html report , 
+     execute "cypress run --env configFileName=qa --spec cypress/e2e/cloverTests/*searchOnAll*.js --browser chrome --headed" 
+     or 
      npm run cy:run:qa
 
      To execute search functionality on a given search engine at a time: specificSearchEngineTest.cy.js
