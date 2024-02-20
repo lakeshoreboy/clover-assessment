@@ -18,7 +18,8 @@ function getConfigurationByFile(file){
 
 module.exports = async (on,config) => {
 
-    const file = config.env.configFile || 'qa' ;
+    const file = config.env.configFileName || 'qa' ;
+    
     on('task', {
         
     })

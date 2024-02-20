@@ -20,7 +20,9 @@ module.exports = defineConfig({
    
   }, 
   env: {
-    hideXHRInCommandLog : true
+    hideXHRInCommandLog : true,
+    searchengine :""
+    
   } ,
   e2e: {
     setupNodeEvents(on, config) {

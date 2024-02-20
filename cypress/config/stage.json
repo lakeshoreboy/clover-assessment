@@ -4,7 +4,7 @@
        "applicationUrlGoogle":  "https://google.com",
        "applicationUrlYahoo":  "https://yahoo.com",
        "searchString" : "clover.com",
-       "searchStringDoesNotExist": "%%%%%%%%%%%%%%%%%%%%%%",
-       "searchengine":""
+       "searchStringDoesNotExist": "%%%%%%%%%%%%%%%%%%%%%%######################"
+       
     }
 }

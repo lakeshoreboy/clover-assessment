@@ -8,11 +8,17 @@ Steps to setup:
      then open project in vscode
 
      then run command "npm install"
+     
+     To execute search functionality on all search engines at a time : searchOnAllSearchEnginesTest.cy.js
 
-     to run test case in test runner , execute "npx cypress open --env configFile=qa --browser chrome" or npm run cy:open:qa
+     to run test case in test runner , execute "npx cypress open --env configFileName=qa --browser chrome" or npm run cy:open:qa
 
-     to generate video and mochawesome html report , execute "npx cypress run --env configFile=qa --browser chrome --headed" or 
+     to generate video and mochawesome html report , execute "cypress run --env configFileName=qa --spec cypress/e2e/cloverTests/*searchOnAll*.js --browser chrome --headed" or 
      npm run cy:run:qa
+
+     To execute search functionality on a given search engine at a time: specificSearchEngineTest.cy.js
+
+     npx cypress run --env configFileName=stage,searchengine=google --spec cypress/e2e/cloverTests/*specificSearchEngine*.js --headed --browser=chrome
 
      to test cross-browser functionality , we can parameterize --browser value 
 
